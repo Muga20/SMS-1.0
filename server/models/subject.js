@@ -1,18 +1,18 @@
 const {DataTypes} = require('sequelize')
-const Teacher = require('./teacher')
+
 
 const defineSubjectModel = (newDB) => {
 const subject = newDB.define("subject",{
     subject_id:{
-        type: DataTypes.INTEGER,
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
-        autoIncrement: true,
     },
     subject_name:{
         type: DataTypes.STRING,
     },
     teacher_id:{
-        type: DataTypes.INTEGER,
+        type: DataTypes.UUID,
     },
 },
 {

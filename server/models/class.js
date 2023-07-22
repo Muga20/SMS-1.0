@@ -1,31 +1,30 @@
-const {DataTypes} = require('sequelize')
-const Teacher = require('./teacher')
+const { DataTypes } = require("sequelize");
 
 const defineClassesModel = (newDB) => {
-
- const classes = newDB.define("classes",{
-
-    class_id:{
-        type: DataTypes.INTEGER,
+  const Classes = newDB.define(
+    "classes",
+    {
+      class_id: {
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
-        autoIncrement: true,
-    },
-    class_name:{
+      },
+
+      class_name: {
         type: DataTypes.STRING,
-    },
-    teacher_id:{
-        type: DataTypes.INTEGER,
-    
-    },
-},
-{
-    freezeTableName: true,
-    timestamps: true,
-});
+      },
 
-return classes;
+      teacher_id: {
+        type: DataTypes.UUID,
+      },
+    },
+    {
+      freezeTableName: true,
+      timestamps: true,
+    }
+  );
 
+  return Classes;
 };
 
 module.exports = defineClassesModel;
-

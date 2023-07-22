@@ -2,11 +2,13 @@ const {DataTypes} = require('sequelize')
 
 const defineTeacherModel = (newDB) => {
 const teacher = newDB.define("teacher",{
+
     teacher_id:{
-        type: DataTypes.INTEGER,
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
-        autoIncrement: true,
     },
+    
     teacher_reg_no:{
         type: DataTypes.STRING,
     },
@@ -24,6 +26,7 @@ const teacher = newDB.define("teacher",{
     },
     email:{
         type: DataTypes.STRING,
+        unique: true,
     },
     address:{
         type: DataTypes.STRING,

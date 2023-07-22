@@ -1,15 +1,15 @@
 const {DataTypes} = require('sequelize')
-const Student = require('./student')
+
 
 const defineParentModel = (newDB) => {
 const parent = newDB.define("parent",{
     parent_id:{
-        type: DataTypes.INTEGER,
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
-        autoIncrement: true,
     },
     student_id:{
-        type: DataTypes.INTEGER,
+        type: DataTypes.UUID,
     },
     name:{
         type: DataTypes.STRING,
@@ -18,7 +18,11 @@ const parent = newDB.define("parent",{
         type: DataTypes.DATE,
     },  
     contact:{
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
+    },
+    email:{
+        type: DataTypes.STRING,
+        unique: true,
     },
     address:{
         type: DataTypes.STRING,

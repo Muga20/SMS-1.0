@@ -3,9 +3,9 @@ const {DataTypes} = require('sequelize')
 const defineSchoolModel = (newDB) => {
 const School = newDB.define("school",{
     school_id:{
-        type: DataTypes.INTEGER,
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
-        autoIncrement: true,
     },
     School_name:{
         type: DataTypes.STRING,
@@ -15,6 +15,10 @@ const School = newDB.define("school",{
     },
     school_contact_number:{
         type: DataTypes.INTEGER,
+    },
+    school_email:{
+        type: DataTypes.STRING,
+        unique: true,
     },
     logo:{
         type: DataTypes.STRING,

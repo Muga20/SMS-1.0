@@ -44,34 +44,47 @@ const createTeacher = async (req, res, next) => {
       email: email,
       address: address,
       teacher_reg_no: teacher_reg_no,
+     
     });
 
     console.log("New teacher created:", teacher);
 
-    req.teacher_id = email;
+    req.teachers_email = email;
+    req.teacher_id = teacher.teacher_id; 
+
+    console.log(teacher.id)
 
     next();
+
+    return res.status(201).json({
+      success: true,
+      message: "Teacher created successfully",
+      teacher,
+    });
+
   } catch (error) {
-    console.error("Error creating teacher:", error);
-    return res
-      .status(500)
-      .json({ success: false, message: "Failed to create teacher" });
+    return res.status(500).json({
+      success: false,
+      message: "Failed to create teacher",
+    });
   }
 };
+
 
 
 
 const createTeacherLogInCredentials = async (req, res) => {
   try {
     const { schoolName } = req.body;
-    const { teacher_id } = req;
+    const { teachers_email , teacher_id } = req;
+
 
     console.log(
       "Received request to create teacher login credentials:",
       req.body
     );
 
-    if (!schoolName || !teacher_id) {
+    if (!schoolName || !teachers_email) {
       return res
         .status(400)
         .json({ success: false, message: "All Fields Are Required" });
@@ -85,19 +98,19 @@ const createTeacherLogInCredentials = async (req, res) => {
     const hashedPassword = await bcrypt.hash("123456", salt);
 
     const user = await SchoolUsers.create({
-      username: teacher_id,
+      teacher_user_id: teacher_id,
+      username: teachers_email,
       password: hashedPassword,
       role: "teacher",
     });
 
-    console.log("New user created:", user);
-
     return res.status(201).json({
       success: true,
       message: "Teacher created successfully",
+      user,
+     
     });
   } catch (error) {
-    console.error("Error creating teacher login credentials:", error);
     return res.status(500).json({
       success: false,
       message: "Failed to create teacher login credentials",

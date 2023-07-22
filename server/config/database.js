@@ -24,8 +24,6 @@ const queryDatabases = async () => {
 
 
 const getSchoolDBConfigByName = async (schoolName) => {
-  // Your logic to fetch the school database configuration based on the schoolName
-  // ...
 
   const schoolDBName = `${schoolName.toLowerCase()}`;
   const schoolDBConfig = {
