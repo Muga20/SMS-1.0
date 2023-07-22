@@ -46,9 +46,6 @@ const createTeacher = async (req, res, next) => {
   }
 };
 
-
-
-
 const createTeacherLogInCredentials = async (req, res) => {
   try {
     const { schoolName } = req.body;

@@ -122,7 +122,6 @@ const createStudentLogInCredentials = async (req, res) => {
 };
 
 
-
 module.exports = {
   createStudent,
    createStudentsFee,

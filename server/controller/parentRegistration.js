@@ -44,7 +44,6 @@ const createParent = async (req, res, next) => {
 
   };
   
-
   const createParentLogInCredentials = async (req, res) => {
     try {
       const { schoolName } = req.body;
