@@ -5,29 +5,9 @@ const bcrypt = require("bcrypt");
 
 const createTeacher = async (req, res, next) => {
   try {
-    const {
-      schoolName,
-      name,
-      date_of_birth,
-      gender,
-      phone,
-      email,
-      address,
-      teacher_reg_no,
-    } = req.body;
+    const {schoolName,name,date_of_birth,gender,phone,email,address,teacher_reg_no,} = req.body;
 
-    console.log("Received request to create teacher:", req.body);
-
-    if (
-      !schoolName ||
-      !name ||
-      !date_of_birth ||
-      !gender ||
-      !phone ||
-      !email ||
-      !address ||
-      !teacher_reg_no
-    ) {
+    if (!schoolName ||!name ||!date_of_birth ||!gender ||!phone ||!email ||!address ||!teacher_reg_no) {
       return res
         .status(400)
         .json({ success: false, message: "All Fields Are Required" });
@@ -47,12 +27,8 @@ const createTeacher = async (req, res, next) => {
      
     });
 
-    console.log("New teacher created:", teacher);
-
     req.teachers_email = email;
     req.teacher_id = teacher.teacher_id; 
-
-    console.log(teacher.id)
 
     next();
 
@@ -77,12 +53,6 @@ const createTeacherLogInCredentials = async (req, res) => {
   try {
     const { schoolName } = req.body;
     const { teachers_email , teacher_id } = req;
-
-
-    console.log(
-      "Received request to create teacher login credentials:",
-      req.body
-    );
 
     if (!schoolName || !teachers_email) {
       return res
