@@ -5,7 +5,7 @@ const Users = require("../models/users");
 const dotenv = require("dotenv");
 dotenv.config();
 
-const loginStudent = async (req, res) => {
+const loginUser = async (req, res) => {
   try {
     const { schoolName, username, password } = req.body;
 
@@ -64,5 +64,5 @@ const loginStudent = async (req, res) => {
 };
 
 module.exports = {
-  loginStudent,
+  loginUser,
 };
