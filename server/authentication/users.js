@@ -1,6 +1,9 @@
 const { initializeSchoolDB } = require("../constants/databaseVerification");
-const Users = require("../models/users");
+const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const Users = require("../models/users");
+const dotenv = require("dotenv");
+dotenv.config();
 
 const loginStudent = async (req, res) => {
   try {
@@ -29,10 +32,29 @@ const loginStudent = async (req, res) => {
         .json({ success: false, message: "Invalid username or password" });
     }
 
+    const token = jwt.sign(
+      {
+        userId: user.id,
+        student_user_id: user.student_user_id,
+        parent_user_id: user.parent_user_id,
+        teacher_user_id: user.teacher_user_id,
+        username: user.username,
+        role: user.role,
+        schoolName: schoolName,
+      },
+      process.env.TOKEN_SECRET,
+      { expiresIn: "1h" }
+    );
+
+    // Include the token in the "Authorization" header of the response
+    res.setHeader("Authorization", token);
+
     return res.status(200).json({
       success: true,
-      message: "Student logged in successfully",
-      user,
+      message: "Users logged in successfully",
+      user: { userId: user.id, username: user.username, role: user.role },
+      schoolName: schoolName,
+      token: token,
     });
   } catch (error) {
     return res

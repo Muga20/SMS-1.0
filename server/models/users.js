@@ -10,6 +10,10 @@ const defineUserModel = (newDB) => {
         primaryKey: true,
       },
 
+      school_admin_user: {
+        type: DataTypes.UUID,
+      },
+
       student_user_id: {
         type: DataTypes.UUID,
       },
@@ -24,6 +28,7 @@ const defineUserModel = (newDB) => {
 
       username: {
         type: DataTypes.STRING,
+        unique: true,
       },
 
       password: {

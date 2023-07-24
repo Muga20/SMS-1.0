@@ -9,6 +9,9 @@ const EnrollRoutes = require("./routes/enrollment");
 app.use(cors());
 app.use(express.json());
 
+app.use('/Images', express.static('./Images'))
+
+
 app.use("/schools", SchoolRoutes);
 app.use("/auth", AuthRoutes);
 app.use("/enroll", EnrollRoutes);

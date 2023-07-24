@@ -1,38 +1,51 @@
-const {DataTypes} = require('sequelize')
+const { DataTypes } = require("sequelize");
 
-
-const  defineFeesModel = (newDB) => {
-const Student = newDB.define("student",{
-    student_id:{
+const defineFeesModel = (newDB) => {
+  const Student = newDB.define(
+    "student",
+    {
+      student_id: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
         primaryKey: true,
-    },
-    student_adm:{
-        type: DataTypes.STRING,   
-    },
-    name:{
+      },
+      student_adm: {
         type: DataTypes.STRING,
-    },
-
-    date_of_birth:{
+        unique: true,
+      },
+      name: {
+        type: DataTypes.STRING,
+      },
+      UPI: {
+        type: DataTypes.STRING,
+        unique: true,
+      },
+      index_number: {
+        type: DataTypes.STRING,
+      },
+      kcpe_results: {
+        type: DataTypes.STRING,
+      },
+      date_of_birth: {
         type: DataTypes.DATE,
-    },  
-    gender:{
+      },
+      gender: {
         type: DataTypes.STRING,
-    },
-    class_id:{
+      },
+      profile_picture: {
+        type: DataTypes.STRING,
+      },
+      class_id: {
         type: DataTypes.UUID,
+      },
     },
-},
-{
-    freezeTableName: true,
-    timestamps: true,
-});
+    {
+      freezeTableName: true,
+      timestamps: true,
+    }
+  );
 
-
-return Student;
+  return Student;
 };
 
-
-module.exports =  defineFeesModel;
+module.exports = defineFeesModel;

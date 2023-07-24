@@ -11,8 +11,12 @@ const teacher = newDB.define("teacher",{
     
     teacher_reg_no:{
         type: DataTypes.STRING,
+        unique: true,
     },
     name:{
+        type: DataTypes.STRING,
+    },
+    profile_picture:{
         type: DataTypes.STRING,
     },
     date_of_birth:{

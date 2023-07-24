@@ -1,15 +1,13 @@
-const {
-    createSchool  
-}= require( "../controller/schoolRegistration");
+const { verifyToken } = require("../middleware/authMiddleware");
 
-const {
-    createClass
-} = require("../controller/classRoom");
+const { createSchool } = require("../controller/schoolRegistration");
 
+const { createClass, getClasses } = require("../controller/school/classRoom");
 
 const SchoolRoutes = require("express").Router();
 
 SchoolRoutes.post("/", createSchool);
-SchoolRoutes.post("/class", createClass);
+SchoolRoutes.post("/class", verifyToken, createClass);
+SchoolRoutes.get("/class", verifyToken, getClasses);
 
 module.exports = SchoolRoutes;

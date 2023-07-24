@@ -9,12 +9,16 @@ const defineTeacherModel = require("../models/teacher");
 const defineTeacherSubjectModel = require("../models/teacherSubject");
 const defineUsersModel = require("../models/users");
 const defineSubjectModel = require("../models/subject");
+const defineSchoolAdminModel = require("../models/schoolAdmin");
 
 const createSchool = async (req, res) => {
   const { name } = req.body;
 
   try {
+    // Create a new database with the given name
     await sequelize.query(`CREATE DATABASE ${name}`);
+
+    // Configure the new database connection
     const newDBConfig = {
       database: name,
       username: "root",
@@ -33,6 +37,8 @@ const createSchool = async (req, res) => {
       }
     );
 
+    // Define models
+    const SchoolAdmin = defineSchoolAdminModel(newDB);
     const SchoolTeachers = defineTeacherModel(newDB);
     const Schools = schoolsModel(newDB);
     const SchoolStudents = defineStudentModel(newDB);
@@ -52,29 +58,15 @@ const createSchool = async (req, res) => {
     SchoolUsers.belongsTo(SchoolStudents, { foreignKey: "student_user_id" });
     SchoolUsers.belongsTo(SchoolParents, { foreignKey: "parent_user_id" });
     SchoolUsers.belongsTo(SchoolTeachers, { foreignKey: "teacher_user_id" });
+    SchoolUsers.belongsTo(SchoolAdmin, { foreignKey: "school_admin_user" });
 
-    SchoolTeacherSubjects.belongsTo(SchoolSubjects, {
-      foreignKey: "subject_id",
-    });
-    SchoolTeacherSubjects.belongsTo(SchoolTeachers, {
-      foreignKey: "teacher_id",
-    });
+    SchoolTeacherSubjects.belongsTo(SchoolSubjects, { foreignKey: "subject_id" });
+    SchoolTeacherSubjects.belongsTo(SchoolTeachers, { foreignKey: "teacher_id" });
 
-    //arrange the tables in the correct order because of the foreign key
+    // Arrange the tables in the correct order because of the foreign key dependencies
+    await newDB.sync();
 
-    await SchoolTeachers.sync();
-    await Schools.sync();
-    await SchoolSubjects.sync();
-    await SchoolClasses.sync();
-    await SchoolStudents.sync();
-    await SchoolFees.sync();
-    await SchoolParents.sync();
-    await SchoolTeacherSubjects.sync();
-    await SchoolUsers.sync();
-
-    return res
-      .status(200)
-      .json({ message: "School Database and Table created successfully" });
+    return res.status(200).json({ message: "School Database and Tables created successfully" });
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
