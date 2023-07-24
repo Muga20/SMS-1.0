@@ -1,10 +1,10 @@
 
 const {
-     loginStudent,
+     loginUser,
  } = require("../authentication/users"); 
  
 const AuthRoutes = require("express").Router();
 
-AuthRoutes.post("/login", loginStudent);
+AuthRoutes.post("/login", loginUser);
 
 module.exports = AuthRoutes
