@@ -99,7 +99,17 @@
 
 
 
+.section-hero-bg{
+  background-image: url('../public/images/hero-bg.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
+
+.section-about-bg{
+  background-image: url("../public/images/video-bg.png");
+  background-repeat: no-repeat;
+}
 
 /*-----------------------------------*\
   #RESET

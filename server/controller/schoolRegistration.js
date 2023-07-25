@@ -63,7 +63,7 @@ const createSchool = async (req, res) => {
     SchoolTeacherSubjects.belongsTo(SchoolSubjects, { foreignKey: "subject_id" });
     SchoolTeacherSubjects.belongsTo(SchoolTeachers, { foreignKey: "teacher_id" });
 
-    // Arrange the tables in the correct order because of the foreign key dependencies
+
     await newDB.sync();
 
     return res.status(200).json({ message: "School Database and Tables created successfully" });
