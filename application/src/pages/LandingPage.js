@@ -41,7 +41,7 @@ const LandingPage = () => {
     </nav>
 
     <div className="header-actions">   
-      <Link to='/ChooseSchool' className="btn has-before">
+      <Link to='/Auth' className="btn has-before">
         <span className="span">Login</span>
       </Link>
     </div>
