@@ -10,6 +10,7 @@ const defineTeacherSubjectModel = require("../models/teacherSubject");
 const defineUsersModel = require("../models/users");
 const defineSubjectModel = require("../models/subject");
 const defineSchoolAdminModel = require("../models/schoolAdmin");
+const defineDepartmentModel = require("../models/department");
 
 const createSchool = async (req, res) => {
   const { name } = req.body;
@@ -48,6 +49,7 @@ const createSchool = async (req, res) => {
     const SchoolSubjects = defineSubjectModel(newDB);
     const SchoolClasses = defineClassesModel(newDB);
     const SchoolUsers = defineUsersModel(newDB);
+    const SchoolDepartments = defineDepartmentModel(newDB);
 
     // Define associations here
     SchoolStudents.belongsTo(SchoolClasses, { foreignKey: "class_id" });
@@ -59,9 +61,11 @@ const createSchool = async (req, res) => {
     SchoolUsers.belongsTo(SchoolParents, { foreignKey: "parent_user_id" });
     SchoolUsers.belongsTo(SchoolTeachers, { foreignKey: "teacher_user_id" });
     SchoolUsers.belongsTo(SchoolAdmin, { foreignKey: "school_admin_user" });
+    SchoolDepartments.belongsTo(SchoolTeachers, { foreignKey: "department_head" });
 
     SchoolTeacherSubjects.belongsTo(SchoolSubjects, { foreignKey: "subject_id" });
     SchoolTeacherSubjects.belongsTo(SchoolTeachers, { foreignKey: "teacher_id" });
+   
 
     // Arrange the tables in the correct order because of the foreign key dependencies
     await newDB.sync();
