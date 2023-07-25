@@ -19,6 +19,7 @@ const loginUser = async (req, res) => {
     const SchoolUsers = Users(schoolDB);
 
     const user = await SchoolUsers.findOne({ where: { username: username } });
+    console.log(user);
     if (!user) {
       return res
         .status(400)
