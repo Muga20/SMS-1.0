@@ -39,6 +39,7 @@ const loginUser = async (req, res) => {
         student_user_id: user.student_user_id,
         parent_user_id: user.parent_user_id,
         teacher_user_id: user.teacher_user_id,
+        school_admin_user: user.school_admin_user,
         username: user.username,
         role: user.role,
         schoolName: schoolName,
@@ -47,13 +48,27 @@ const loginUser = async (req, res) => {
       { expiresIn: "1h" }
     );
 
-    // Include the token in the "Authorization" header of the response
     res.setHeader("Authorization", token);
 
     return res.status(200).json({
       success: true,
       message: "Users logged in successfully",
+<<<<<<< HEAD
       user: {userId: user.id, username: user.username, role: user.role, schoolName: schoolName, token: token},
+=======
+      user: {
+        userId: user.id,
+        username: user.username,
+        role: user.role,
+        student_user_id: user.student_user_id,
+        parent_user_id: user.parent_user_id,
+        teacher_user_id: user.teacher_user_id,
+        school_admin_user: user.school_admin_user,
+      },
+      schoolName: schoolName,
+      token: token,
+      
+>>>>>>> b307ea966030deac8a3f47de3a3fc0a7313ee84f
     });
   } catch (error) {
     return res
