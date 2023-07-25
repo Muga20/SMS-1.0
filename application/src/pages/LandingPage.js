@@ -52,7 +52,7 @@ const LandingPage = () => {
 <main>
   <article>
 
-  <section className="section hero">
+  <section className="section hero section-hero-bg">
   <div className="container">
     <div className="hero-content">
       <h1 className="section-title font-bold text-3xl md:text-4xl lg:text-5xl text-gray-800 leading-tight">
@@ -138,7 +138,7 @@ const LandingPage = () => {
   </div>
 </section>
 
-  <section className="section hero has-bg-image" id="about" aria-label="about">
+  <section className="section hero section-about-bg" id="about" aria-label="about">
       <div className="container mx-auto">
         <figure className="about-banner">
           <div className="img-holder">
@@ -170,6 +170,8 @@ const LandingPage = () => {
               <span className="font-medium text-gray-800">Lifetime Access</span>
             </li>
           </ul>
+
+          <img src="http://127.0.0.1:5500/assets/images/about-shape-3.png" width="520" height="370" loading="lazy" alt="about banner" className="object-cover w-full h-48 md:w-520 md:h-370"/>
         </div>
       </div>
   </section>

@@ -6,7 +6,7 @@ const createClass = async (req, res) => {
     const { className } = req.body;
     const { schoolName, teacher_user_id , role } = req.user; 
 
-    if ( !className || !schoolName || !teacher_user_id || !role) {
+    if ( !className || !schoolName || !user_id || !role) {
       return res
         .status(400)
         .json({ success: false, message: "All Fields Are Required" });

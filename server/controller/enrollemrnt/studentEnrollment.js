@@ -2,6 +2,7 @@ const { initializeSchoolDB } = require("../../constants/databaseVerification");
 const Student = require("../../models/student");
 const Fees = require("../../models/fees");
 const Users = require("../../models/users");
+const generatePassword = require('generate-password');
 const bcrypt = require("bcrypt");
 const path = require("path");
 
@@ -81,14 +82,17 @@ const createStudentLogInCredentials = async (req, res) => {
     const schoolDB = await initializeSchoolDB(schoolName);
     const SchoolUsers = Users(schoolDB);
 
-    const saltRounds = 10;
-    const salt = await bcrypt.genSalt(saltRounds);
-    const hashedPassword = await bcrypt.hash("123456", salt);
+    const password = generatePassword.generate({
+      length:8, numbers:true, symbols:false,uppercase:true, excludeSimilarCharacters:true,
+    });
+
+    const encryptedPassword = await bcrypt.hash(password, 10);
+    console.log(password);
 
     const user = await SchoolUsers.create({
       student_user_id: student_id,
       username: studentAdm,
-      password: hashedPassword,
+      password: encryptedPassword,
       role: "student",
     });
 
