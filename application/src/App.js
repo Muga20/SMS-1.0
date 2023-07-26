@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Navigate } from 'react-router-dom'
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 import Login from "./pages/Login";
@@ -26,7 +27,6 @@ function App() {
           <Route path="/ResetPassword" element={<ResetPassword />} />
           <Route path="/ForgotPassword" element={<ForgotPassword />} />
 
-        
           {userRole && roleRoutes[userRole]?.map((route) => (
             <Route
               key={route.path}
@@ -34,6 +34,8 @@ function App() {
               element={<RouteGuard element={route.element} requiredRole={userRole} />}
             />
           ))}
+
+          <Route path="/*" element={<Navigate to="/Auth" replace />} />
         </Routes>
       </BrowserRouter>
     </div>
