@@ -7,14 +7,15 @@ import About from "./pages/About";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Features from "./pages/Features";
-import Classes from "./pages/teacher/Classes";
-import Attendance from "./pages/student/Attendance";
-import Fees from "./pages/accountant/Fees";
-import StudentsRegistration from "./pages/secretary/StudentsRegistration";
-import Teachers from "./pages/seniorTeacher/Teachers";
-import ClassStream from "./pages/deputy/ClassStreams";
 import Report from "./pages/principle/Report";
 import SchoolRegistration from "./pages/admin/SchoolRegistration";
+
+import StudentFees from "./pages/student/Fees";
+import StudentSchoolCalender from "./pages/student/SchoolCalender";
+import StudentProfile from "./pages/student/Profile";
+import StudentTimetable from "./pages/student/Timetable";
+import StudentSubjects from "./pages/student/Subjects";
+import StudentAttendance from "./pages/student/Attendance";
 
 
 
@@ -44,12 +45,15 @@ import SchoolRegistration from "./pages/admin/SchoolRegistration";
     { path: "/ForgotPassword", element: <ForgotPassword/> },
     { path: "/admin", element: <SchoolRegistration /> },
     { path: "/principle", element: <Report /> },
-    { path: "/deputy", element: <ClassStream/> },
-    { path: "/seniorTeacher", element: <Teachers/> },
-    { path: "/secretary", element: <StudentsRegistration/> },
-    { path: "/accountant", element: <Fees/> },
-    { path: "/teacher", element: <Classes /> },    
-    { path: "/student", element: <Attendance/> },
+
+    //student pages
+    { path: "/student/timetable", element: <StudentTimetable/> },
+    { path: "/student/courseMaterials", element: <StudentSchoolCalender/> },
+    { path: "/student/profile", element: <StudentProfile/> },
+    { path: "/student/fees", element: <StudentFees/> },
+    { path: "/student/Subjects", element: < StudentSubjects/> },
+    { path: "/student/attendance", element: <StudentAttendance/> },
+
  
  
   
