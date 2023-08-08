@@ -1,45 +1,71 @@
-import React, { useEffect, useState } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Navigate } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 import Login from "./pages/Login";
 import LandingPage from "./pages/LandingPage";
-import { getUserRole } from './components/constant/getRole';
-import roleRoutes from './components/constant/RouteConfiguration';
-import RouteGuard from './components/constant/RouteGuard';
+import About from "./pages/About";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
+import Features from "./pages/Features";
+import Classes from "./pages/teacher/Classes";
+import Attendance from "./pages/student/Attendance";
+import Fees from "./pages/accountant/Fees";
+import StudentsRegistration from "./pages/secretary/StudentsRegistration";
+import Teachers from "./pages/seniorTeacher/Teachers";
+import ClassStream from "./pages/deputy/ClassStreams";
+import Report from "./pages/principle/Report";
+import SchoolRegistration from "./pages/admin/SchoolRegistration";
 
-function App() {
-  const [userRole, setUserRole] = useState(null);
 
-  useEffect(() => {
-    // Get the user role from local storage when the component mounts
-    const role = getUserRole();
-    setUserRole(role);
-  }, []); 
 
+ 
+  const Layout = () => {
+    return (
+      <div className="bg-customBackground">
+        <Navbar />
+        <Outlet  />
+        <Footer />
+      </div>
+    );
+  };
+
+  const router = createBrowserRouter([
+       { path: "/",  element: <Layout />,children: [
+        { path: "/", element: <LandingPage/> },
+        { path: "/about", element: <About />},
+        { path: "/features", element: <Features />},
+      ],
+    },
+  
+    { path: "/navbar", element: <Navbar/> },
+    { path: "/footer", element: <Footer/> },
+    { path: "/Auth", element: <Login/> },
+    { path: "/ResetPassword", element: <ResetPassword/> },
+    { path: "/ForgotPassword", element: <ForgotPassword/> },
+    { path: "/admin", element: <SchoolRegistration /> },
+    { path: "/principle", element: <Report /> },
+    { path: "/deputy", element: <ClassStream/> },
+    { path: "/seniorTeacher", element: <Teachers/> },
+    { path: "/secretary", element: <StudentsRegistration/> },
+    { path: "/accountant", element: <Fees/> },
+    { path: "/teacher", element: <Classes /> },    
+    { path: "/student", element: <Attendance/> },
+ 
+ 
+  
+  ]);
+
+  function App() {
   return (
     <div>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/Auth" element={<Login />} />
-          <Route path="/ResetPassword" element={<ResetPassword />} />
-          <Route path="/ForgotPassword" element={<ForgotPassword />} />
-
-          {userRole && roleRoutes[userRole]?.map((route) => (
-            <Route
-              key={route.path}
-              path={route.path}
-              element={<RouteGuard element={route.element} requiredRole={userRole} />}
-            />
-          ))}
-
-          <Route path="/*" element={<Navigate to="/Auth" replace />} />
-        </Routes>
-      </BrowserRouter>
+      <RouterProvider router={router}></RouterProvider>
     </div>
   );
 }
 
 export default App;
+
+
+
+
+
