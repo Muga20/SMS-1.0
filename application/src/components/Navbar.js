@@ -5,22 +5,22 @@ function Navbar() {
     const [open, setOpen] = useState(false);
     
   return (
-    <section className="shadow-sm font-poppins dark:bg-gray-800 fixed  bg-gray-100   z-50 w-full">
+    <section className="shadow-sm font-poppins fixed  bg-gray-100   z-50 w-full">
       <div className="max-w-6xl px-4 mx-auto">
         <nav className="flex items-center justify-between py-4">
-          <Link to='/' className="text-3xl font-semibold leading-none dark:text-gray-400">Logo</Link>
+          <Link to='/' className="text-xl font-semibold leading-none dark:text-gray-400">Logo</Link>
 
         
 
             <ul class="hidden lg:w-auto lg:space-x-12 lg:items-center lg:flex ">
-                <li><Link to='/' class="text-sm text-gray-700 hover:text-blue-700 dark:text-gray-400 dark:hover:text-blue-300">Home</Link></li>
-                <li><Link to='/about' class="text-sm text-gray-700 hover:text-blue-700 dark:text-gray-400 dark:hover:text-blue-300">About us</Link></li>
-                <li><Link to='/features' class="text-sm text-gray-700 hover:text-blue-700 dark:text-gray-400 dark:hover:text-blue-300">Features</Link></li>
+                <li><Link to='/' class="text-md text-gray-700 hover:text-blue-700 dark:text-gray-400 dark:hover:text-blue-300">Home</Link></li>
+                <li><Link to='/about' class="text-md text-gray-700 hover:text-blue-700 dark:text-gray-400 dark:hover:text-blue-300">About us</Link></li>
+                <li><Link to='/features' class="text-md text-gray-700 hover:text-blue-700 dark:text-gray-400 dark:hover:text-blue-300">Features</Link></li>
             </ul>
 
             
             <div class="hidden lg:w-auto lg:space-x-12 lg:items-center lg:flex ">
-                <li><Link to='/Auth' class="text-sm text-gray-700 hover:text-blue-700 dark:text-gray-400 dark:hover:text-blue-300">login</Link></li>
+                <Link to='/Auth' class="text-md text-gray-700 hover:text-blue-700 dark:text-gray-400 dark:hover:text-blue-300">login</Link>
             </div>
 
             <div className="flex lg:hidden">

@@ -22,7 +22,7 @@ function SchoolCalender() {
 
 return (
     <div className="flex flex-col h-screen overflow-hidden ">
-    <div className="flex flex-1 relative">
+      <div className="flex flex-1 relative">
       <Sidebar toggleSidebar={toggleSidebar} sidebarOpen={sidebarOpen} />
       
 
@@ -31,129 +31,57 @@ return (
                <DashboardTopNav toggleSidebar={toggleSidebar} sidebarOpen={sidebarOpen} />
                
               <div className="overflow-y-auto">
-                  <p className='text-center pt-5 text-lg font-bold text-black'>Term One Calender</p>
-                  <div className='p-5 m-3 bg-gray-100'>
-                      <table className="border w-8/12 mx-auto text-center text-sm font-light border-gray-500">
-                      <thead className="border-b font-medium  border-gray-500">
-                          <tr>
-                            <th className="border-r px-6 py-4 border-gray-500"></th>
-                            <th className="border-r px-6 py-4 border-gray-500">Opening</th>
-                            <th className="border-r px-6 py-4 border-gray-500">Closing</th>
-                            <th className="px-6 py-4 border-gray-500">Duration</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr className="border-b border-gray-500">
-                            <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">Term 1</td>
-                            <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">2023-08-01</td>
-                            <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">2023-08-01</td>
-                            <td className="whitespace-nowrap  px-6 py-2 font-medium border-gray-500">9 weeks</td>
-                          </tr>
-                          <tr className="border-b border-gray-500">
-                            <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">Holiday</td>
-                            <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">2023-08-02</td>
-                            <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">2023-08-02</td>
-                            <td className="whitespace-nowrap  px-6 py-2 font-medium border-gray-500">6 weeks</td>
-                          </tr>
-                          <tr className="border-b border-gray-500">
-                            <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">Half Term Break</td>
-                            <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">2023-08-03</td>
-                            <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">2023-08-03</td>
-                            <td className="whitespace-nowrap  px-6 py-2 font-medium border-gray-500">5 weeks</td>
-                          </tr>
-                          <tr className="border-b border-gray-500">
-                            <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">Holiday</td>
-                            <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">2023-08-04</td>
-                            <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">2023-08-04</td>
-                            <td className="whitespace-nowrap  px-6 py-2 font-medium border-gray-500">3 weeks</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                  </div>
-
-                  <p className='text-center pt-5 text-lg font-bold text-black'>Term Two Calender</p>
-                  <div className='p-5 m-3 bg-gray-100'>
-                      <table className="border w-8/12 mx-auto text-center text-sm font-light border-gray-500">
-                      <thead className="border-b font-medium  border-gray-500">
-                          <tr>
-                            <th className="border-r px-6 py-4 border-gray-500"></th>
-                            <th className="border-r px-6 py-4 border-gray-500">Opening</th>
-                            <th className="border-r px-6 py-4 border-gray-500">Closing</th>
-                            <th className="px-6 py-4 border-gray-500">Duration</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr className="border-b border-gray-500">
-                            <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">Term 1</td>
-                            <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">2023-08-01</td>
-                            <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">2023-08-01</td>
-                            <td className="whitespace-nowrap  px-6 py-2 font-medium border-gray-500">9 weeks</td>
-                          </tr>
-                          <tr className="border-b border-gray-500">
-                            <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">Holiday</td>
-                            <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">2023-08-02</td>
-                            <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">2023-08-02</td>
-                            <td className="whitespace-nowrap  px-6 py-2 font-medium border-gray-500">6 weeks</td>
-                          </tr>
-                          <tr className="border-b border-gray-500">
-                            <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">Half Term Break</td>
-                            <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">2023-08-03</td>
-                            <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">2023-08-03</td>
-                            <td className="whitespace-nowrap  px-6 py-2 font-medium border-gray-500">5 weeks</td>
-                          </tr>
-                          <tr className="border-b border-gray-500">
-                            <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">Holiday</td>
-                            <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">2023-08-04</td>
-                            <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">2023-08-04</td>
-                            <td className="whitespace-nowrap  px-6 py-2 font-medium border-gray-500">3 weeks</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                  </div>
-
-                  <p className='text-center pt-5 text-lg font-bold text-black'>Term Three Calender</p>
-                  <div className='p-5 m-3 bg-gray-100'>
-                      <table className="border w-8/12 mx-auto text-center text-sm font-light border-gray-500">
-                      <thead className="border-b font-medium  border-gray-500">
-                          <tr>
-                            <th className="border-r px-6 py-4 border-gray-500"></th>
-                            <th className="border-r px-6 py-4 border-gray-500">Opening</th>
-                            <th className="border-r px-6 py-4 border-gray-500">Closing</th>
-                            <th className="px-6 py-4 border-gray-500">Duration</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr className="border-b border-gray-500">
-                            <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">Term 1</td>
-                            <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">2023-08-01</td>
-                            <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">2023-08-01</td>
-                            <td className="whitespace-nowrap  px-6 py-2 font-medium border-gray-500">9 weeks</td>
-                          </tr>
-                          <tr className="border-b border-gray-500">
-                            <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">Holiday</td>
-                            <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">2023-08-02</td>
-                            <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">2023-08-02</td>
-                            <td className="whitespace-nowrap  px-6 py-2 font-medium border-gray-500">6 weeks</td>
-                          </tr>
-                          <tr className="border-b border-gray-500">
-                            <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">Half Term Break</td>
-                            <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">2023-08-03</td>
-                            <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">2023-08-03</td>
-                            <td className="whitespace-nowrap  px-6 py-2 font-medium border-gray-500">5 weeks</td>
-                          </tr>
-                          <tr className="border-b border-gray-500">
-                            <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">Holiday</td>
-                            <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">2023-08-04</td>
-                            <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">2023-08-04</td>
-                            <td className="whitespace-nowrap  px-6 py-2 font-medium border-gray-500">3 weeks</td>
-                          </tr>
-                        </tbody>
-                      </table>
+                  <div className='p-8 bg-white'>
+                  <p tabindex="0" class="focus:outline-none text-2xl font-semibold leading-6 text-gray-800">School Calender</p>
+                      <div className='p-3 mt-8'>
+                          <table class="w-full text-sm text-left text-gray-500">
+                              <thead class="text-xs text-gray-900 uppercase dark:text-gray-400 bg-gray-100">
+                                  <tr>
+                                      <th scope="col" class="px-6 py-3"></th>
+                                      <th scope="col" class="px-6 py-3">Opening</th>
+                                      <th scope="col" class="px-6 py-3">Closing</th>
+                                      <th scope="col" class="px-6 py-3">Duration</th>
+                                  </tr>
+                              </thead>
+                              <tbody className='bg-gray-50'>
+                                <tr>
+                                      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">Term 1</th>
+                                      <td class="px-6 py-4 text-black">2023-08-02</td>
+                                      <td class="px-6 py-4 text-black">2023-08-02</td>
+                                      <td class="px-6 py-4 text-black"> 5 Weeks</td>
+                                  </tr>
+                                  <tr class="">
+                                  <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">Holiday</th>
+                                      <td class="px-6 py-4 text-black">2023-08-02</td>
+                                      <td class="px-6 py-4 text-black">2023-08-02</td>
+                                      <td class="px-6 py-4 text-black"> 5 Weeks</td>
+                                  </tr>
+                                  <tr class="">
+                                  <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">Half Term Break</th>
+                                      <td class="px-6 py-4 text-black">2023-08-02</td>
+                                      <td class="px-6 py-4 text-black">2023-08-02</td>
+                                      <td class="px-6 py-4 text-black"> 5 Weeks</td>
+                                  </tr>
+                                  <tr class="">
+                                  <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">Holiday</th>
+                                      <td class="px-6 py-4 text-black">2023-08-02</td>
+                                      <td class="px-6 py-4 text-black">2023-08-02</td>
+                                      <td class="px-6 py-4 text-black"> 5 Weeks</td>
+                                  </tr>
+                                  <tr class="">
+                                  <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-black">Half Term Break</th>
+                                      <td class="px-6 py-4 text-black">2023-08-02</td>
+                                      <td class="px-6 py-4 text-black">2023-08-02</td>
+                                      <td class="px-6 py-4 text-black"> 5 Weeks</td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                      </div>
                   </div>
               </div>
             </main>
       </div>
-    </div>
+      </div>
   </div>
   )
 }

@@ -105,7 +105,7 @@ const LandingPage = () => {
            </div>
       </section>
         
-        <div class="py-20 dark:bg-gray-700">
+        <div class="py-20 bg-white">
             <div class="max-w-6xl px-4 mx-auto md:px-0 font-poppins">
                 <div class="flex flex-wrap items-center px-4">
                     <div class="w-full px-4 mb-16 md:w-1/2 md:mb-0">

@@ -7,17 +7,6 @@ import DashboardTopNav from '../../components/DashboardTopNav';
 
 function Subjects() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [list, setList] = useState([]);
-
-
-const lists = async () => {
-  const item = await axios.get('https://jsonplaceholder.typicode.com/posts')
-  setList(item.data)
-}
-
-useEffect(() => {
-  lists();
-}, [list]);
 
 const toggleSidebar = () => {
   setSidebarOpen(!sidebarOpen);
@@ -34,43 +23,36 @@ return (
         <main className="flex flex-col bg-white h-[100vh]">
              <DashboardTopNav toggleSidebar={toggleSidebar} sidebarOpen={sidebarOpen} />
              
-             <p className='text-center pt-5 text-lg font-bold text-black'>Subjects</p>
             <div className="overflow-y-auto">
-            <div className='p-5 m-3 bg-gray-100'>
-                  <table className="border w-8/12 mx-auto text-center text-sm font-light border-gray-500">
-                  <thead className="border-b font-medium  border-gray-500">
-                      <tr>
-                        <th scope="col" className="border-r px-6 py-4 font-medium border-gray-500"> Subject </th>
-                        <th scope="col" className="px-6 py-4 font-medium border-gray-500">Teacher</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr className="border-b border-gray-500">
-                        <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500"> Math  </td>
-                        <td className="whitespace-nowrap px-6 py-4 font-medium border-gray-500"> Ms. Johnson</td>
-                      </tr>
-                      <tr className="border-b border-gray-500">
-                        <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">Science </td>
-                        <td className="whitespace-nowrap px-6 py-4 font-medium border-gray-500">Mr. Smith </td>
-                      </tr>
-                      <tr className="border-b border-gray-500">
-                        <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">English </td>
-                        <td className="whitespace-nowrap px-6 py-4 font-medium border-gray-500">Mr. Williams</td>
-                      </tr>
-                      <tr className="border-b border-gray-500">
-                        <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">History </td>
-                        <td className="whitespace-nowrap px-6 py-4 font-medium border-gray-500">Mr. Brown</td>
-                      </tr>
-                      <tr className="border-b border-gray-500">
-                        <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">Music</td>
-                        <td className="whitespace-nowrap px-6 py-4 font-medium border-gray-500">Mr. Brown</td>
-                      </tr>
-                      <tr className="border-b border-gray-500">
-                        <td className="whitespace-nowrap border-r px-6 py-4 font-medium border-gray-500">PE</td>
-                        <td className="whitespace-nowrap px-6 py-4 font-medium border-gray-500">Mrs. Lee </td>
-                      </tr>
-                    </tbody>
-                  </table>
+
+               <div className='p-8 bg-white'>
+               <p tabindex="0" class="focus:outline-none text-2xl font-semibold leading-6 text-gray-800">Subjects</p>
+                  <table class="min-w-full divide-y p-3 mt-8 divide-gray-200 border dark:divide-gray-700">
+                         <thead class="bg-gray-50 dark:bg-gray-800">
+                                <tr>
+                                   <th scope="col" class="px-4 py-3.5 text-center text-sm font-normal rtl:text-right text-gray-500 dark:text-gray-400">Subject</th>
+                                    <th scope="col" class="px-4 py-3.5 text-center text-sm font-normal rtl:text-right text-gray-500 dark:text-gray-400">Teacher</th>  
+                                 </tr>
+                          </thead>
+                          <tbody class="bg-white divide-y">
+                                <tr>  
+                                  <td class="px-4 py-4 border-r text-center text-sm text-black  whitespace-nowrap"> Math</td>  
+                                   <td class="px-4 py-4 text-center text-sm text-black  whitespace-nowrap"> Mr. Smith </td>          
+                               </tr>
+                               <tr>  
+                                  <td class="px-4 py-4 border-r text-center text-sm text-black  whitespace-nowrap"> Science </td>  
+                                   <td class="px-4 py-4 text-center text-sm text-black  whitespace-nowrap"> Ms. Johnson</td>          
+                               </tr>
+                               <tr>  
+                                  <td class="px-4 py-4 border-r text-center text-sm text-black  whitespace-nowrap"> English</td>  
+                                   <td class="px-4 py-4 text-center text-sm text-black  whitespace-nowrap">Mr. Williams</td>          
+                               </tr>
+                               <tr>  
+                                  <td class="px-4 py-4 border-r text-center text-sm text-black  whitespace-nowrap">Music </td>  
+                                   <td class="px-4 py-4 text-center text-sm text-black  whitespace-nowrap"> Mrs. Lee </td>          
+                               </tr>
+                         </tbody>
+                  </table> 
               </div>
             </div>
           </main>

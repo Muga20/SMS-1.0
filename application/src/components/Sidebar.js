@@ -31,26 +31,32 @@ function Sidebar({ sidebarOpen, toggleSidebar }) {
                 <div class="flex flex-col flex-1 px-3 mt-6">
                     <div class="space-y-4">
                         <nav class="flex-1 space-y-1">
-                            <Link to='/student/timetable' class="flex items-center gap-1 px-2 py-2.5 text-sm font-medium transition-all duration-200 text-gray-900 hover:text-black rounded-lg hover:bg-gray-100 group">
+                            <Link to='/student' class="flex items-center gap-1 px-2 py-2.5 text-sm font-medium transition-all duration-200 text-gray-900 hover:text-black rounded-lg hover:bg-gray-100 group">
                             <MdOutlineDashboardCustomize  size={23} /> Dashboard
                             </Link>
                             <Link to='/student/profile' class="flex items-center gap-1 px-2 py-2.5 text-sm font-medium transition-all duration-200 text-gray-900 hover:text-black rounded-lg hover:bg-gray-100 group">
-                                <BiSolidUserAccount size={23}/>Profile
+                                <BiSolidUserAccount size={23}/> Profile
+                            </Link>
+                            <Link to='/student/grades' class="flex items-center gap-1 px-2 py-2.5 text-sm font-medium transition-all duration-200 text-gray-900 hover:text-black rounded-lg hover:bg-gray-100 group">
+                            <span class="material-symbols-outlined">problem</span> Grades
+                            </Link>
+                            <Link to='/student/notification' class="flex items-center gap-1 px-2 py-2.5 text-sm font-medium transition-all duration-200 text-gray-900 hover:text-black rounded-lg hover:bg-gray-100 group">
+                              <span class="material-symbols-outlined">mark_email_unread</span> Notification
                             </Link>
                             <Link to='/student/attendance' class="flex items-center gap-1 px-2 py-2.5 text-sm font-medium transition-all duration-200 text-gray-900 hover:text-black rounded-lg hover:bg-gray-100 group">
-                              <BiSolidUserAccount size={23}/>Attendance
+                            <span class="material-symbols-outlined"> how_to_reg</span> Attendance
                             </Link>
                             <Link to='/student/timetable' class="flex items-center gap-1 px-2 py-2.5 text-sm font-medium transition-all duration-200 text-gray-900 hover:text-black rounded-lg hover:bg-gray-100 group">
                                <AiOutlineTable size={23}/> Timetable
                             </Link>
                             <Link to='/student/courseMaterials' class="flex items-center gap-1 px-2 py-2.5 text-sm font-medium transition-all duration-200 text-gray-900 hover:text-black rounded-lg hover:bg-gray-100 group">
-                                <SlCalender size={23}/> Shool Calender 
+                                <SlCalender size={23}/> School Calender 
                             </Link>
                             <Link to='/student/fees' class="flex items-center gap-1 px-2 py-2.5 text-sm font-medium transition-all duration-200 text-gray-900 hover:text-black rounded-lg hover:bg-gray-100 group">
-                                 <MdPayments size={23}/>Fees
+                                 <MdPayments size={23}/> Fees
                             </Link>
                             <Link to='/student/Subjects' class="flex items-center gap-1 px-2 py-2.5 text-sm font-medium transition-all duration-200 text-gray-900 hover:text-black rounded-lg hover:bg-gray-100 group">
-                                 <LiaBookSolid size={23}/>Subjects
+                                 <LiaBookSolid size={23}/> Subjects
                             </Link>
                         </nav>
 

@@ -6,7 +6,7 @@ function DashboardTopNav({ sidebarOpen, toggleSidebar  }) {
     <div className="md:hidden max-w-7xl mx-auto bg-gray-50 py-3  w-full">
     <div className="flex items-center">
       <div className="md:hidden">
-        <button className="text-black" onClick={toggleSidebar}>
+        <button className="text-black px-5" onClick={toggleSidebar}>
           {sidebarOpen ? <AiOutlineMenu size={35} /> : <AiOutlineMenu size={35} />}
         </button>
       </div>

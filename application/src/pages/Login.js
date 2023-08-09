@@ -50,12 +50,12 @@ function Login() {
     <section class="flex flex-wrap items-center justify-center h-screen font-poppins">
         <div class="max-w-6xl mx-auto ">
             <div class=" lg:py-7">
-                <div class="max-w-xl lg:p-12 shadow-md rounded-md p-6 mx-auto text-center bg-gray-100 dark:bg-gray-800 ">
+                <div class="max-w-xl lg:p-12 shadow-md rounded-md p-6 mx-auto text-center bg-gray-100">
                     <h2 class="mb-4 text-4xl font-bold text-gray-700 lg:mb-7 lg:text-3xl dark:text-gray-300">Login your account</h2>
                     <form onSubmit={authentication}>
                     <div class="mb-4 lg:mb-7">
                         <select value={schoolName} onChange={(e) => setSchoolName(e.target.value)}
-                          className="text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:text-black dark:focus:ring-t-500">
+                          className="text-gray-900 text-sm border border-gray-300 outline-none rounded-lg block w-full p-2.5 text-black dark:focus:ring-t-500">
                             <option>school Name</option>
                             <option className='select-option'>mySchool</option>
                             <option>France</option>
@@ -63,12 +63,11 @@ function Login() {
                           </select>
                       </div>
                       <div class="mb-4 lg:mb-7">
-                            <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} class="w-full px-4 py-2 bg-white rounded-lg lg:py-3 border border-gray-300 dark:text-black " placeholder="Enter your username"/>
+                            <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} class="w-full text-md px-4 py-2 outline-none bg-white rounded-lg border border-gray-300 text-black" placeholder="Enter your username"/>
                       </div>
                       <div class="mb-4 lg:mb-7">
                             <div class="relative flex items-center">
-                                <input   type={passwordVisible ? 'text' : 'password'}  value={password} onChange={(e) => setPassword(e.target.value)} class="w-full px-4 py-3 bg-white rounded-lg lg:py-3 dark:text-black " placeholder="Enter password"/>
-
+                                <input type={passwordVisible ? 'text' : 'password'}  value={password} onChange={(e) => setPassword(e.target.value)} class="w-full px-4 py-2 bg-white outline-none border border-gray-300 rounded-lg text-black" placeholder="Enter password"/>
                                 <div className="absolute top-6 right-0 mr-3 transform -translate-y-1/2 cursor-pointer" onClick={togglePasswordVisibility}>
                                      {passwordVisible ? <FiEyeOff size={20} /> : <FiEye size={20} />}
                                </div>

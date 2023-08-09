@@ -16,6 +16,9 @@ import StudentProfile from "./pages/student/Profile";
 import StudentTimetable from "./pages/student/Timetable";
 import StudentSubjects from "./pages/student/Subjects";
 import StudentAttendance from "./pages/student/Attendance";
+import StudentGrades from "./pages/student/Grades";
+import StudentNotification from "./pages/student/Notification";
+import StudentDashboard from "./pages/student/Dashboard";
 
 
 
@@ -47,12 +50,15 @@ import StudentAttendance from "./pages/student/Attendance";
     { path: "/principle", element: <Report /> },
 
     //student pages
+    { path: "/student", element: <StudentDashboard/> },
     { path: "/student/timetable", element: <StudentTimetable/> },
     { path: "/student/courseMaterials", element: <StudentSchoolCalender/> },
     { path: "/student/profile", element: <StudentProfile/> },
     { path: "/student/fees", element: <StudentFees/> },
     { path: "/student/Subjects", element: < StudentSubjects/> },
     { path: "/student/attendance", element: <StudentAttendance/> },
+    { path: "/student/grades", element: <StudentGrades/> },
+    { path: "/student/notification", element: <StudentNotification/> },
 
  
  

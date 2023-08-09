@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react'
 import Sidebar from '../../components/Sidebar';
 import DashboardTopNav from '../../components/DashboardTopNav';
 
-
-function Fees() {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+function Grades() {
+    const [sidebarOpen, setSidebarOpen] = useState(false);
 
     const toggleSidebar = () => {
       setSidebarOpen(!sidebarOpen);
@@ -22,10 +21,8 @@ return (
 
               <div className="overflow-y-auto">
 
-           
-               <div className='p-8 bg-white'>
-               <p tabindex="0" class="focus:outline-none text-2xl font-semibold leading-6 text-gray-800">Payment Structure</p>
-                     <div className='p-3 mt-8 bg-gray-100 rounded-md'>
+              <p className='pt-5 px-3 text-lg font-bold text-black'>Payment Structure</p>
+                      <div className='p-5 m-3 bg-gray-100 rounded-md'>
                           <table className="w-full mx-auto text-sm font-light">
                             <thead>
                                 <tr class="text-md font-semibold tracking-wide text-left text-gray-900 bg-white uppercase border-b border-gray-600">
@@ -44,10 +41,9 @@ return (
                                 </tr>
                               </tbody>
                           </table>
-                     </div>
-                  
+                      </div>
 
-                    <p className='text-center pt-10 text-xl font-bold text-black'>Payment Balance</p>
+                    <p className='text-center pt-5 text-xl font-bold text-black'>Payment Balance</p>
                     <div className='flex item-center justify-around py-5 lg:py-0'>
                            <div class="flex items-center gap-x-2">
                               <h2 class="text-lg font-bold text-black">Class:</h2>
@@ -94,7 +90,6 @@ return (
                          </tbody>
                      </table> 
                   </div>
-                  </div>
               </div>
             </main>
       </div>
@@ -103,4 +98,4 @@ return (
   )
 }
 
-export default Fees
+export default Grades
